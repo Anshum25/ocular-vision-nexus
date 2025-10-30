@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
@@ -51,17 +52,20 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                {["About", "Services", "Portfolio", "Testimonials", "Contact"].map((link) => (
-                  <li key={link}>
-                    <button
-                      onClick={() => {
-                        const element = document.getElementById(link.toLowerCase());
-                        element?.scrollIntoView({ behavior: "smooth" });
-                      }}
+                {[
+                  { name: "About", path: "/about" },
+                  { name: "Services", path: "/services" },
+                  { name: "Portfolio", path: "/portfolio" },
+                  { name: "Careers", path: "/careers" },
+                  { name: "Contact", path: "/contact" }
+                ].map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.path}
                       className="text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      {link}
-                    </button>
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -86,12 +90,12 @@ const Footer = () => {
               © {currentYear} Ocular Labs. All rights reserved.
             </div>
             <div className="flex gap-6 text-sm">
-              <button className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
                 Privacy Policy
-              </button>
-              <button className="text-muted-foreground hover:text-foreground transition-colors">
+              </Link>
+              <Link to="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
                 Terms of Service
-              </button>
+              </Link>
             </div>
           </div>
         </div>

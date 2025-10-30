@@ -31,13 +31,13 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
-            <span className="block mb-2">Engineering</span>
-            <span className="text-gradient">Digital Excellence</span>
+            We Build Products That
+            <span className="block text-gradient">Define the Future</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We build elegant, high-performance web, mobile, and AI products that define modern business.
+            Ocular Labs is a full-service digital agency crafting technology that inspires trust and drives results.
           </p>
 
           {/* CTA Buttons */}

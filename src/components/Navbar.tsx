@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -37,30 +38,35 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          <button onClick={() => scrollToSection("about")} className="text-muted-foreground hover:text-foreground transition-colors">
+        <div className="hidden lg:flex items-center space-x-6">
+          <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+            Home
+          </Link>
+          <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
             About
-          </button>
-          <button onClick={() => scrollToSection("services")} className="text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
             Services
-          </button>
-          <button onClick={() => scrollToSection("portfolio")} className="text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/portfolio" className="text-muted-foreground hover:text-foreground transition-colors">
             Portfolio
-          </button>
-          <button onClick={() => scrollToSection("testimonials")} className="text-muted-foreground hover:text-foreground transition-colors">
-            Testimonials
-          </button>
-          <button onClick={() => scrollToSection("contact")} className="text-muted-foreground hover:text-foreground transition-colors">
-            Contact
-          </button>
-          <Button onClick={() => scrollToSection("contact")} variant="default" className="bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all">
-            Get a Quote
-          </Button>
+          </Link>
+          <Link to="/careers" className="text-muted-foreground hover:text-foreground transition-colors">
+            Careers
+          </Link>
+          <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+            Blog
+          </Link>
+          <Link to="/contact">
+            <Button variant="default" className="bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all">
+              Get a Quote
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground"
+          className="lg:hidden text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -69,25 +75,30 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-card mt-4 mx-6 rounded-lg p-6 space-y-4 animate-fade-in">
-          <button onClick={() => scrollToSection("about")} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
+        <div className="lg:hidden glass-card mt-4 mx-6 rounded-lg p-6 space-y-4 animate-fade-in">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
+            Home
+          </Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
             About
-          </button>
-          <button onClick={() => scrollToSection("services")} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/services" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
             Services
-          </button>
-          <button onClick={() => scrollToSection("portfolio")} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
             Portfolio
-          </button>
-          <button onClick={() => scrollToSection("testimonials")} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
-            Testimonials
-          </button>
-          <button onClick={() => scrollToSection("contact")} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
-            Contact
-          </button>
-          <Button onClick={() => scrollToSection("contact")} variant="default" className="w-full bg-primary hover:bg-primary/90">
-            Get a Quote
-          </Button>
+          </Link>
+          <Link to="/careers" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
+            Careers
+          </Link>
+          <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left text-muted-foreground hover:text-foreground transition-colors">
+            Blog
+          </Link>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button variant="default" className="w-full bg-primary hover:bg-primary/90">
+              Get a Quote
+            </Button>
+          </Link>
         </div>
       )}
     </nav>
